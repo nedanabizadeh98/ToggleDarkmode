@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            color: #001426;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        a {
+            color: #001426
+        }
+
+        [data-theme="dark"] {
+            min-height: 100vh;
+            background: #222529;
+            color: rgb(187, 178, 178);
+        }
+        [data-theme="dark"] a{
+            color: rgb(187, 178, 178);
+        }
+
+        .chengetheme-parent {
+            display: flex;
+            flex-direction: column;
+            width: 100px;
+            border-radius: 2.75rem;
+            position: relative;
+            height: 40px;
+            margin: auto 0.75rem;
+            background: #0085FF;
+            border: 2px solid #E3E3E3;
+            box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+        [data-theme="dark"] .chengetheme-parent {
+            background: #202a5e;
+            background: #001426;
+            border: 2px solid #E3E3E3;
+            box-shadow: inset 0px 4px 4px rgb(0 0 0 / 25%);
+            filter: drop-shadow(0px 9px 24px rgba(0, 0, 0, 0.5));
+        }
+
+        .change-theme-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            position: absolute;
+            background: #D9D9D9;
+            top: 1px;
+            left: 1px;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+        [data-theme="dark"] .change-theme-btn {
+            transform: translateX(60px) rotate(1turn);
+        }
+
+        [data-theme="dark"] .change-theme-roll {
+            background: #001426;
+            width: calc(100% - 6px);
+            height: calc(100% - 5px);
+        }
+
+        .change-theme-roll {
+            position: absolute;
+            border-radius: 50%;
+            transition: 0.5s;
+        }
+
+        .d-flex {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="d-flex">
+        <div>
+            <h1> simple darkmode button
+            </h1>
+            <p> developed by <b>Neda Nabizadeh</b></p>
+            <a href="https://www.linkedin.com/in/neda-nabizadeh-4782b41b8/" title="linkedin">Linkedin:Neda-nabizadeh</a>
+        </div>
+        <div class="chengetheme-parent" onclick="changetheme();">
+            <div class="change-theme-btn">
+                <span class="change-theme-roll"></span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var theme = 1;//1=light 0=dark
+        function changetheme() {
+            if (theme == 1) {
+                document.querySelector("body").setAttribute("data-theme", "dark");
+                theme = 0;
+            } else {
+                document.querySelector("body").setAttribute("data-theme", "light");
+                theme = 1;
+            }
+        }
+    </script>
+</body>
+
+</html>
